@@ -1,10 +1,8 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-// create our User model
 class Student extends Model {}
 
-// create fields/columns for User model
 Student.init(
   {
     id: {
