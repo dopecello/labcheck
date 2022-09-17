@@ -24,6 +24,7 @@ Material.init(
       allowNull: false,
       validate: {
         isNumeric: true,
+        isDecimal: false
       },
     },
     category_id: {
