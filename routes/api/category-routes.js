@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
     include: [
       {
         model: Material,
-        attributes: ["id", "material_name"],
+        attributes: ["id", "material_name", "available"],
       },
     ],
   })
@@ -23,11 +23,11 @@ router.get("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "category_name"],
+    attributes: ["id", "category_name", "available"],
     include: [
       {
         model: Material,
-        attributes: ["id", "material_name", "available", "stock", "category_id"],
+        attributes: ["id", "material_name", "available", "category_id"],
       },
     ],
   })

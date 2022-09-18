@@ -19,17 +19,17 @@ Material.init(
       type: DataTypes.BOOLEAN,
       allowNull: false,
     },
-    stock: {
+    student_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-        isNumeric: true,
-        isDecimal: false
+      references: {
+        model: "student",
+        key: "id",
       },
     },
     category_id: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
       references: {
         model: "category",
         key: "id",

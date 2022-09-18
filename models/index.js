@@ -10,6 +10,10 @@ Category.hasMany(Material, {
   foreignKey: "category_id",
 });
 
+Student.hasMany(Material, {
+  foreignKey: "student_id"
+});
+
 
 
 module.exports = { Category, Student, Material };
