@@ -19,7 +19,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  Product.findOne({
+  Material.findOne({
     where: {
       id: req.params.id,
     },
