@@ -6,6 +6,7 @@ const studentData = [
     email: "Owner@Owner.com",
     password: "OwnerMasterData@354@@/*",
   },
+
 ];
 
 const seedStudents = () => Student.bulkCreate(studentData);

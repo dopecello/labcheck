@@ -9,6 +9,9 @@ const categoryData = [
   },
   {
     category_name: 'Misc',
+  },
+  {
+    category_name: 'Chemicals',
   }
 ];
 

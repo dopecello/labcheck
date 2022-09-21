@@ -5,7 +5,7 @@
 				<div class="hero-body">
 					<div class="container">
 						<h1 class="title">
-							Hello! - insert name here-
+							Hello!
 						</h1>
 						<h2 class="subtitle">
 							Check out our nice categories
@@ -41,39 +41,8 @@
 					</div>
 				</div>
 			</section>
-				{{!-- {{> material-list }} --}}
-							<div class="columns">
-				<div class="column is-12">
-					<div class="card events-card">
-						<header class="card-header ">
-							<p class="card-header-title ">
-								Items
-							</p>
-						</header>
-						<div class="card-table">
-							<div class="content">
-								<table class="table is-fullwidth is-striped">
-									<tbody>
-									{{#each materials}}
-										<tr>
-											<td width="2%" class="pl-5"><i class="fa fa-flask"></i></td>
-											<td>{{material_name}}</td>
-											<td>In stock?: {{available}}</td>
-											<td>Category: {{category.category_name}}</td>
-											<td class="level-right"><a class="button is-small is-primary"
-													href="/product">Checkout</a></td>
-										</tr>
-									{{/each}}	
-									</tbody>
-								</table>
-							</div>
-						</div>
-						<footer class="card-footer">
-							<a href="#" class="card-footer-item">View All</a>
-						</footer>
-					</div>
-				</div>				
-			</div>
+				{{> material-list }}
+
 		</div>
 	</div>
 </section>

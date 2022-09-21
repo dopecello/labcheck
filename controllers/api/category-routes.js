@@ -19,11 +19,12 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
+  console.log(req.params.id)
   Category.findOne({
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "category_name", "available"],
+    attributes: ["id", "category_name"],
     include: [
       {
         model: Material,

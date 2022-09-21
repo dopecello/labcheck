@@ -84,6 +84,18 @@ const materialData = [
 	"student_id": 1,
     "category_id": 3
   },
+  {
+    "material_name": "Hydrocloric Acid (200 ml)",
+	"available": true,
+	"student_id": 1,
+    "category_id": 4
+  },
+  {
+    "material_name": "Hydrogen Peroxide (100 ml)",
+	"available": true,
+	"student_id": 1,
+    "category_id": 4
+  }
 
   ];
 
