@@ -41,7 +41,7 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const dbStudentData = await Student.create({
-      student_name: req.body.student_name,
+      name: req.body.name,
       email: req.body.email,
       password: req.body.password,
     });

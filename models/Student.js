@@ -16,7 +16,7 @@ Student.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    student_name: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },

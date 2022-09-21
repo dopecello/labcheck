@@ -2,7 +2,7 @@ const { Student } = require("../models");
 
 const studentData = [
   {
-    student_name: "Owner",
+    name: "Owner",
     email: "Owner@Owner.com",
     password: "OwnerMasterData@354@@/*",
   },
