@@ -1,0 +1,24 @@
+        <section class="hero is-info welcome is-small">
+				<div class="hero-body">
+					<div class="container">
+						<h1 class="title">
+							Welcome to your dashboard!
+						</h1>
+						<h2 class="subtitle">
+							These are your currently checked out items.
+						</h2>
+					</div>
+				</div>
+			</section>
+        <div class="container has-text-centered">
+            <div class="columns is-vcentered">
+                <div class="column is-5">
+                    <figure class="image is-4by3">
+                        <img src="/assets/labequipment.webp" alt="Description">
+                    </figure>
+                </div>
+                <div class="column is-6 is-offset-1">
+                    {{> material-list }}
+                </div>
+            </div>
+        </div>

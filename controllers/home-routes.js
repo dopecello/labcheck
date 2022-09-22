@@ -134,7 +134,33 @@ router.get("/Chemicals", withAuth, (req, res) => {
       );
       // call custom Data Transform to create a curated materials object per category
       let materials = transform.materialize(categories[0]);
+      console.log(materials)
       res.render("homepage", { materials });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+router.get("/dash", (req, res) => {
+  Material.findAll({
+    where: {
+      student_id: "2",
+    },
+    include: {
+      model: Category,
+      attributes: ["id","category_name",],
+    },
+  })
+    .then((dbMaterialData) => {
+      
+      const materials = dbMaterialData.map((chkmaterial) =>
+      chkmaterial.get({ plain: true })
+      );
+      // currently materials for dashboard are hard coded to student ID 2 
+      console.log(materials)
+      res.render("dash", { materials });
     })
     .catch((err) => {
       console.log(err);
@@ -152,10 +178,6 @@ router.get("/login", (req, res) => {
     return;
   }
   res.render("login");
-});
-
-router.get("/product", withAuth, (req, res) => {
-  res.render("product");
 });
 
 module.exports = router;
