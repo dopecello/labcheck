@@ -1,0 +1,33 @@
+			<div class="columns">
+				<div class="column is-12">
+					<div class="card events-card">
+						<header class="card-header ">
+							<p class="card-header-title ">
+								Items
+							</p>
+						</header>
+						<div class="card-table">
+							<div class="content">
+								<table class="table is-fullwidth is-striped">
+									<tbody>
+									{{#each materials}}
+										<tr>
+											<td width="2%" class="pl-5"><i class="fa fa-flask"></i></td>
+											<td>{{material_name}}</td>
+											<td>In stock?: {{available}}</td>
+											{{!-- <td>Item count: {{count}}</td> --}}
+											<td>Category: {{category.category_name}}</td>
+											<td class="level-right"><a class="button is-small is-primary"
+													href="/dash">Checkout</a></td>
+										</tr>
+									{{/each}}	
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<footer class="card-footer">
+							<a href="/" class="card-footer-item">View All Categories</a>
+						</footer>
+					</div>
+				</div>				
+			</div>

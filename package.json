@@ -1,0 +1,34 @@
+{
+  "name": "labcheck",
+  "version": "1.0.0",
+  "description": "Group project",
+  "main": "server.js",
+  "start": "node server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node ./seeds/index.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SebasMelendez/labcheck.git"
+  },
+  "author": "Group 7",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SebasMelendez/labcheck/issues"
+  },
+  "homepage": "https://github.com/SebasMelendez/labcheck#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.5",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "lodash": "^4.17.21",
+    "mysql2": "^2.3.3",
+    "path": "^0.12.7",
+    "sequelize": "^6.22.0"
+  }
+}
