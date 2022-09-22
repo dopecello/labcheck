@@ -1,7 +1,12 @@
 const { Material } = require('../models');
 
 const materialData = [
-    {    "material_name": "Beaker Set",
+    { "material_name": "Beaker Set",
+	"available": true,
+	"student_id": 1,
+    "category_id": 1
+  },
+  { "material_name": "Beaker Set",
 	"available": true,
 	"student_id": 1,
     "category_id": 1
