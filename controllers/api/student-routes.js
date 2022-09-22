@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const withAuth = require("../../utils/auth")
 const { Student, Material } = require("../../models");
 
 router.get("/", async (req, res) => {
@@ -70,15 +71,25 @@ router.post("/login", (req, res) => {
       return;
     }
 
-    // req.session.save(() => {
-    //   req.session.student_id = dbStudentData.id;
-    //   req.session.student_name = dbStudentData.student_name;
-    //   req.session.loggedIn = true;
+    req.session.save(() => {
+      req.session.student_id = dbStudentData.id;
+      req.session.student_name = dbStudentData.student_name;
+      req.session.loggedIn = true;
 
-    res.json({ student: dbStudentData, message: "You are now logged in!" });
+      res.json({ student: dbStudentData, message: "You are now logged in!" });
+    });
   });
 });
-// });
+
+router.post("/logout", (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
 
 router.put("/:id", async (req, res) => {
   try {
@@ -99,7 +110,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", withAuth, async (req, res) => {
   try {
     const dbStudentData = await Student.destroy({
       where: {
