@@ -143,7 +143,7 @@ router.get("/Chemicals", withAuth, (req, res) => {
     });
 });
 
-router.get("/dash", (req, res) => {
+router.get("/dash", withAuth, (req, res) => {
   Material.findAll({
     where: {
       student_id: "2",
