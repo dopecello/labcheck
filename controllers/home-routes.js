@@ -46,7 +46,7 @@ router.get("/", (req, res) => {
     });
 });
 
-router.get("/Misc", withAuth, (req, res) => {
+router.get("/Misc", (req, res) => {
   Category.findAll({
     where: {
       category_name: "Misc",
@@ -62,7 +62,7 @@ router.get("/Misc", withAuth, (req, res) => {
       );
       // call custom Data Transform to create a curated materials object per category
       let materials = transform.materialize(categories[0]);
-      res.render("homepage", { materials });
+      res.render("homepage", { materials, loggedIn: req.session.loggedIn });
     })
     .catch((err) => {
       console.log(err);
@@ -70,7 +70,7 @@ router.get("/Misc", withAuth, (req, res) => {
     });
 });
 
-router.get("/Safety", withAuth, (req, res) => {
+router.get("/Safety", (req, res) => {
   Category.findAll({
     where: {
       category_name: "Safety Equipment",
@@ -86,7 +86,7 @@ router.get("/Safety", withAuth, (req, res) => {
       );
       // call custom Data Transform to create a curated materials object per category
       let materials = transform.materialize(categories[0]);
-      res.render("homepage", { materials });
+      res.render("homepage", { materials, loggedIn: req.session.loggedIn });
     })
     .catch((err) => {
       console.log(err);
@@ -94,7 +94,7 @@ router.get("/Safety", withAuth, (req, res) => {
     });
 });
 
-router.get("/Lab", withAuth, (req, res) => {
+router.get("/Lab", (req, res) => {
   Category.findAll({
     where: {
       category_name: "Lab Equipment",
@@ -110,7 +110,7 @@ router.get("/Lab", withAuth, (req, res) => {
       );
       // call custom Data Transform to create a curated materials object per category
       let materials = transform.materialize(categories[0]);
-      res.render("homepage", { materials });
+      res.render("homepage", { materials, loggedIn: req.session.loggedIn });
     })
     .catch((err) => {
       console.log(err);
@@ -118,7 +118,7 @@ router.get("/Lab", withAuth, (req, res) => {
     });
 });
 
-router.get("/Chemicals", withAuth, (req, res) => {
+router.get("/Chemicals", (req, res) => {
   Category.findAll({
     where: {
       category_name: "Chemicals",
@@ -135,7 +135,7 @@ router.get("/Chemicals", withAuth, (req, res) => {
       // call custom Data Transform to create a curated materials object per category
       let materials = transform.materialize(categories[0]);
       console.log(materials)
-      res.render("homepage", { materials });
+      res.render("homepage", { materials, loggedIn: req.session.loggedIn });
     })
     .catch((err) => {
       console.log(err);
@@ -146,7 +146,7 @@ router.get("/Chemicals", withAuth, (req, res) => {
 router.get("/dash", (req, res) => {
   Material.findAll({
     where: {
-      student_id: "2",
+      student_id: req.session.student_id,
     },
     include: {
       model: Category,
@@ -160,7 +160,7 @@ router.get("/dash", (req, res) => {
       );
       // currently materials for dashboard are hard coded to student ID 2 
       console.log(materials)
-      res.render("dash", { materials });
+      res.render("dash", { materials, loggedIn: req.session.loggedIn });
     })
     .catch((err) => {
       console.log(err);
