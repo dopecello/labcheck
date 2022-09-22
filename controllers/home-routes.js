@@ -3,6 +3,7 @@ const sequelize = require("../config/connection");
 const transform = require("../utils/tranformer");
 const { Category, Material } = require("../models");
 const _ = require("lodash");
+const withAuth = require("../utils/auth")
 
 router.get("/", (req, res) => {
   Material.findAll({
@@ -45,7 +46,7 @@ router.get("/", (req, res) => {
     });
 });
 
-router.get("/Misc", (req, res) => {
+router.get("/Misc", withAuth, (req, res) => {
   Category.findAll({
     where: {
       category_name: "Misc",
@@ -69,7 +70,7 @@ router.get("/Misc", (req, res) => {
     });
 });
 
-router.get("/Safety", (req, res) => {
+router.get("/Safety", withAuth, (req, res) => {
   Category.findAll({
     where: {
       category_name: "Safety Equipment",
@@ -93,7 +94,7 @@ router.get("/Safety", (req, res) => {
     });
 });
 
-router.get("/Lab", (req, res) => {
+router.get("/Lab", withAuth, (req, res) => {
   Category.findAll({
     where: {
       category_name: "Lab Equipment",
@@ -117,7 +118,7 @@ router.get("/Lab", (req, res) => {
     });
 });
 
-router.get("/Chemicals", (req, res) => {
+router.get("/Chemicals", withAuth, (req, res) => {
   Category.findAll({
     where: {
       category_name: "Chemicals",
@@ -153,7 +154,7 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-router.get("/product", (req, res) => {
+router.get("/product", withAuth, (req, res) => {
   res.render("product");
 });
 

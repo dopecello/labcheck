@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const withAuth = require("../../utils/auth")
 const { Student, Material } = require("../../models");
 
 router.get("/", async (req, res) => {
@@ -109,7 +110,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", withAuth, async (req, res) => {
   try {
     const dbStudentData = await Student.destroy({
       where: {
