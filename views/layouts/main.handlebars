@@ -27,17 +27,21 @@
 				</div>
 				<div id="topNav" class="navbar-menu">
 					<div class="navbar-start">
-						<a class="navbar-item" href="/dash">My Dashboard</a>
-						{{!-- <a class="navbar-item" href="landing.html">Landing</a>
-						<a class="navbar-item" href="blog.html">Blog</a>
-						<a class="navbar-item" href="instaAlbum.html">Album</a>
-						<a class="navbar-item" href="kanban[search].html">Kanban</a>
-						<a class="navbar-item" href="search.html">Search</a>
-						<a class="navbar-item" href="tabs.html">Tabs</a> --}}
+						<a class="navbar-item" href="/dashboard">Dashboard</a>
 					</div>
 					<div class="navbar-end">
 						<div class="navbar-item">
 							<div class="field is-grouped">
+								{{#if loggedIn}}
+								<p class="control">
+									<a href="/logout"class="button is-small is-info is-outlined" id="logout-btn">
+										<span class="icon">
+											<i class="fa fa-user"></i>
+										</span>
+										<span>Logout</span>
+									</a>
+								</p>
+								{{else}}
 								<p class="control">
 									<a href="/register" class="button is-small">
 										<span class="icon">
@@ -56,6 +60,7 @@
 										<span>Login</span>
 									</a>
 								</p>
+								{{/if}}
 							</div>
 						</div>
 					</div>
@@ -88,6 +93,7 @@
 				</div>
 			</div>
 		</footer>
+		<script src="/js/logout.js"></script>
 	</body>
 		  <style>
     :root {
