@@ -6,11 +6,6 @@ const materialData = [
 	"student_id": 1,
     "category_id": 1
   },
-  { "material_name": "Beaker Set",
-	"available": true,
-	"student_id": 1,
-    "category_id": 1
-  },
   {
     "material_name": "Test Tube Set",
 	"available": true,
