@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const withAuth = require("../../utils/auth")
+const withAuth = require("../../utils/auth");
 const { Student, Material } = require("../../models");
 
 router.get("/", async (req, res) => {
@@ -46,7 +46,12 @@ router.post("/", async (req, res) => {
       email: req.body.email,
       password: req.body.password,
     });
-    res.json(dbStudentData);
+    req.session.save(() => {
+      req.session.student_id = dbStudentData.id;
+      req.session.student_name = dbStudentData.student_name;
+      req.session.loggedIn = true;
+      res.json(dbStudentData);
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
