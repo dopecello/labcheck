@@ -61,7 +61,7 @@ router.post("/", (req, res) => {
     });
 });
 
-router.put("/:id", withAuth, (req, res) => {
+router.put("/:id", (req, res) => {
   Material.update(
     {
       material_name: req.body.material_name,
