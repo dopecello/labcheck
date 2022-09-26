@@ -1,6 +1,8 @@
 
 # Labcheck
 
+![labcheck](labcheck.png)
+
 ## Description
 
   This project was made with Node.js. it allows you to have a checkout system for lab equipment.
