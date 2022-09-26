@@ -1,7 +1,7 @@
 
 # Labcheck
 
-![labcheck](labcheck.png)
+![labcheck](/assets/labcheck.png)
 
 ## Description
 
